@@ -6,6 +6,21 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json" data-credentials="include">
+        <script type="application/json">
+        {
+            "vars": {
+                        "GA4_MEASUREMENT_ID": "G-MT4DTLRQK8",
+                        "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                        "DEFAULT_PAGEVIEW_ENABLED": true,    
+                        "GOOGLE_CONSENT_ENABLED": false,
+                        "WEBVITALS_TRACKING": false,
+                        "PERFORMANCE_TIMING_TRACKING": false,
+                        "SEND_DOUBLECLICK_BEACON": false
+            }
+        }
+        </script>
+        </amp-analytics> 
     <style amp-custom>
       /* Add your custom CSS styles here */
     </style>
@@ -22,10 +37,7 @@
 
     <amp-analytics type="googleanalytics">
       <script type="application/json">
-        {
-          "vars": {
-            "GA4_MEASUREMENT_ID": "G-MT4DTLRQK8"
-          },
+        {          
           "triggers": {
             "button1Click": {
               "on": "click",
