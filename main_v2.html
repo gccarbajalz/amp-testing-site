@@ -17,7 +17,8 @@
                         "WEBVITALS_TRACKING": false,
                         "PERFORMANCE_TIMING_TRACKING": false,
                         "SEND_DOUBLECLICK_BEACON": false
-            },  
+            },
+            "config": {
             "cookies": {
                 "_ga": {
                     "value": "$IF(LINKER_PARAM(_gl, _ga),GA1.0.LINKER_PARAM(_gl, _ga),)"
@@ -188,6 +189,7 @@
                     "baseUrl": "/g/collect?v=2&tid=${GA4_MEASUREMENT_ID}&cid=${clientId}&aip=1"
                 }
             }
+            }
         }
         </script>
         </amp-analytics> 
@@ -199,7 +201,7 @@
     <header>
       <h1>GA4 Events Demo</h1>
     </header>
-    <h3 style="color:darkblue">AMP WebPage version 1.02 </h3>
+    <h3 style="color:darkblue">AMP WebPage version 1.03 </h3>
     <section>
       <h2>Buttons</h2>
       <button id="button1">Button 1</button>
