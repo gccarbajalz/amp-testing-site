@@ -6,7 +6,7 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json" data-credentials="include">
+    <amp-analytics type="googleanalytics" config="https://amp-testing-site.netlify.app/ga4.json" data-credentials="include">
         <script type="application/json">
         {
             "vars": {
@@ -24,6 +24,7 @@
     <style amp-custom>
       body {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
@@ -34,7 +35,7 @@
     <header>
       <h1>GA4 Events Demo for AMP WebSite</h1>
     </header>
-    <h3 style="color:darkblue">AMP WebPage version 1.04 </h3>
+    <h3 style="color:darkblue">AMP WebPage version 1.05 </h3>
     <section>
       <h2>Buttons</h2>
       <button id="button1">Button 1</button>
