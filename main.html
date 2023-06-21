@@ -115,6 +115,22 @@
                         "event__num_content_download_time": "${contentLoadTime}",
                         "event__num_dom_interactive_time": "${domInteractiveTime}"
                     }
+                },
+                "button1Click": {
+                  "selector": "#button1ID",
+                  "on": "click",
+                  "request": "ga4Event",
+                  "vars": {
+                      "ga4_event_name": "button1_click"
+                  }
+                },
+                "button2Click": {
+                    "selector": "#button2ID",
+                    "on": "click",
+                    "request": "ga4Event",
+                    "vars": {
+                        "ga4_event_name": "button2_click"
+                    }
                 }
             },
             "vars": {
@@ -184,31 +200,6 @@
     <header>
         <h1>Check out our latest technology products!</h1>
     </header>    
-
-    <amp-analytics type="googleanalytics">
-      <script type="application/json">
-      {      
-        "triggers": {
-          "button1Click": {
-              "selector": "#button1ID",
-              "on": "click",
-              "request": "ga4Event",
-              "vars": {
-                  "ga4_event_name": "button1_click"
-              }
-          },
-          "button2Click": {
-              "selector": "#button2ID",
-              "on": "click",
-              "request": "ga4Event",
-              "vars": {
-                  "ga4_event_name": "button2_click"
-              }
-          }
-        }
-      }
-      </script>
-    </amp-analytics>
   
   <!-- The Buttons -->
   <button id="button1ID">Click Button 1</button>
