@@ -32,20 +32,48 @@
     <header>
         <h1>Check out our latest technology products!</h1>
     </header>    
-    
-    <amp-script layout="container" script="hello-world-script">
-      <button id="helloButton">Click me!</button>
-      <p id="helloOutput"></p>
-    </amp-script>
+
+    <amp-analytics type="gtag" data-credentials="include">
+      <script type="application/json">
+      {
+          "vars" : {
+              "gtag_id": "GA_MEASUREMENT_ID", // replace with your GA4 Measurement ID
+              "config" : {
+                  "G-MT4DTLRQK8": { "groups": "default" } // replace with your GA4 Measurement ID
+              }
+          },
+          "extraUrlParams": {
+              "send_to": "G-MT4DTLRQK8" // replace with your GA4 Measurement ID
+          },
+          "triggers": {
+              "button1Click": {
+                  "selector": "#button1ID",
+                  "on": "click",
+                  "request": "event",
+                  "vars": {
+                      "event_name": "button1_click",
+                      "event_category": "AMP",
+                      "event_label": "AMP Button 1 Clicked"
+                  }
+              },
+              "button2Click": {
+                  "selector": "#button2ID",
+                  "on": "click",
+                  "request": "event",
+                  "vars": {
+                      "event_name": "button2_click",
+                      "event_category": "AMP",
+                      "event_label": "AMP Button 2 Clicked"
+                  }
+              }
+          }
+      }
+      </script>
+  </amp-analytics>
   
-    <script id="hello-world-script" type="text/plain" target="amp-script">
-      const button = document.getElementById('helloButton');
-      const output = document.getElementById('helloOutput');
-      
-      button.addEventListener('click', () => {
-        output.textContent = 'Hello, world!';
-      });
-    </script>
+  <!-- The Buttons -->
+  <button id="button1ID">Click Button 1</button>
+  <button id="button2ID">Click Button 2</button>
 
     <footer class="footer">
         <p><a href="#contact">Contact Us</a></p>
