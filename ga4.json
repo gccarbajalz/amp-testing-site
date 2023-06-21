@@ -100,7 +100,9 @@
             "selector": "#button1",
             "request": "ga4Event",
             "vars": {
-            "ga4_event_name": "button1_clicked"
+                "ga4_event_name": "button1_clicked",
+                "custom_param1": "custom_value1",
+                "custom_param2": "custom_value2"
             }
         },
         "button2Click": {
@@ -108,7 +110,9 @@
             "selector": "#button2",
             "request": "ga4Event",
             "vars": {
-            "ga4_event_name": "button2_clicked"
+                "ga4_event_name": "button2_clicked",
+                "custom_param1": "custom_value1",
+                "custom_param2": "custom_value2"
             }
         }
     },
