@@ -168,6 +168,9 @@
         "ga4Event": {
             "baseUrl": "/g/collect?${ga4SharedPayload}&en=${ga4_event_name}"
         },
+        "ga4Event_type1": {
+            "baseUrl": "/g/collect?${ga4SharedPayload}&en=${ga4_event_name}&ep.custom_param1=${custom_param1}&ep.custom_param2=${custom_param2}"
+        },
         "ga4Dc": {
             "origin": "https://stats.g.doubleclick.net",
             "baseUrl": "/g/collect?v=2&tid=${GA4_MEASUREMENT_ID}&cid=${clientId}&aip=1"
