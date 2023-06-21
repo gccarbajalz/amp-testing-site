@@ -116,6 +116,22 @@
                                 "event__num_content_download_time": "${contentLoadTime}",
                                 "event__num_dom_interactive_time": "${domInteractiveTime}"
                             }
+                        },
+                        "button1Click": {
+                            "on": "click",
+                            "selector": "#button1",
+                            "request": "ga4Event",
+                            "vars": {
+                            "event_name": "button1_clicked"
+                            }
+                        },
+                        "button2Click": {
+                            "on": "click",
+                            "selector": "#button2",
+                            "request": "ga4Event",
+                            "vars": {
+                            "event_name": "button2_clicked"
+                            }
                         }
                     },
                     "vars": {
@@ -194,31 +210,6 @@
       <button id="button1">Button 1</button>
       <button id="button2">Button 2</button>
     </section>
-
-    <amp-analytics type="googleanalytics">
-      <script type="application/json">
-        {          
-          "triggers": {
-            "button1Click": {
-              "on": "click",
-              "selector": "#button1",
-              "request": "ga4Event",
-              "vars": {
-                "event_name": "button1_clicked"
-              }
-            },
-            "button2Click": {
-              "on": "click",
-              "selector": "#button2",
-              "request": "ga4Event",
-              "vars": {
-                "event_name": "button2_clicked"
-              }
-            }
-          }
-        }
-      </script>
-    </amp-analytics>
 
     <footer>
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><p>Created by Giorgio Carbajal Zapata</p>
