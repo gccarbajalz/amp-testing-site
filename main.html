@@ -15,9 +15,15 @@
 
     <amp-analytics type="googleanalytics">
   <script type="application/json">
-  {
-      "vars": {
-          "gtag_id": "G-MT4DTLRQK8"
+      {
+        "vars" : {
+          "gtag_id": "G-MT4DTLRQK8",
+          "config" : {
+              "G-MT4DTLRQK8": { "groups": "default" }
+          }
+      },
+      "extraUrlParams": {
+          "send_to": "G-MT4DTLRQK8"
       },
       "triggers": {
           "button1Click": {
