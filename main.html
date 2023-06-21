@@ -8,18 +8,21 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 
-	<amp-analytics type="gtag" data-credentials="include">
-	<script type="application/json">
-	{
-	  "vars" : {
-		"gtag_id": "G-XXXXXXXXXX", // Replace with your Property ID
-		"config" : {
-		  "G-XXXXXXXXXX": { "groups": "default" } // Replace with your Property ID
-		}
-	  }
-	}
-	</script>
-	</amp-analytics>
+	<amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json" data-credentials="include">
+    <script type="application/json">
+    {
+        "vars": {
+                    "GA4_MEASUREMENT_ID": "G-MT4DTLRQK8",
+                    "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                    "DEFAULT_PAGEVIEW_ENABLED": true,    
+                    "GOOGLE_CONSENT_ENABLED": false,
+                    "WEBVITALS_TRACKING": false,
+                    "PERFORMANCE_TIMING_TRACKING": false,
+                    "SEND_DOUBLECLICK_BEACON": false
+        }
+    }
+    </script>
+    </amp-analytics> 
 
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
@@ -51,14 +54,41 @@
     </header>
     <section class="product-grid">
         <div class="product-item">
-            <img src="https://via.placeholder.com/200" alt="Product 1">
+            <img src="https://via.placeholder.com/50" alt="Product 1">
             <h2>Product 1</h2>
             <p>Description of Product 1</p>
-            <button>Add to Cart</button>
+            <button id="btnProduct1">Add to Cart</button>
         </div>
+        <div class="product-item">
+          <img src="https://via.placeholder.com/50" alt="Product 2">
+          <h2>Product 2</h2>
+          <p>Description of Product 2</p>
+          <button id="btnProduct2">Add to Cart</button>
+      </div>
+      <div class="product-item">
+        <img src="https://via.placeholder.com/50" alt="Product 3">
+        <h2>Product 3</h2>
+        <p>Description of Product 3</p>
+        <button id="btnProduct3">Add to Cart</button>
+    </div>
         <!-- Repeat the product-item div for each product, replace image source and product information accordingly -->
         <!-- ... -->
     </section>
+    
+    <amp-script layout="container" script="hello-world-script">
+      <button id="helloButton">Click me!</button>
+      <p id="helloOutput"></p>
+    </amp-script>
+  
+    <script id="hello-world-script" type="text/plain" target="amp-script">
+      const button = document.getElementById('helloButton');
+      const output = document.getElementById('helloOutput');
+      
+      button.addEventListener('click', () => {
+        output.textContent = 'Hello, world!';
+      });
+    </script>
+
     <footer class="footer">
         <p><a href="#contact">Contact Us</a></p>
         <p><a href="#about">About Us</a></p>
