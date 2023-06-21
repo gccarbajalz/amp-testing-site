@@ -6,64 +6,44 @@
     
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json" data-credentials="include">
-      <script type="application/json">
-      {
-          "vars": {
-                      "GA4_MEASUREMENT_ID": "G-MT4DTLRQK8",
-                      "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
-                      "DEFAULT_PAGEVIEW_ENABLED": true,    
-                      "GOOGLE_CONSENT_ENABLED": false,
-                      "WEBVITALS_TRACKING": false,
-                      "PERFORMANCE_TIMING_TRACKING": false,
-                      "SEND_DOUBLECLICK_BEACON": false
-          }
-      }
-      </script>
-      </amp-analytics> 
+    
   </head>
   <body>
     <header>
         <h1>Check out our latest technology products!</h1>
     </header>    
 
-    <amp-analytics type="gtag" data-credentials="include">
-      <script type="application/json">
-      {
-          "vars" : {
-              "gtag_id": "G-MT4DTLRQK8",
-              "config" : {
-                  "G-MT4DTLRQK8": { "groups": "default" } 
+    amp-analytics type="googleanalytics">
+  <script type="application/json">
+  {
+      "vars": {
+          "gtag_id": "G-MT4DTLRQK8"
+      },
+      "triggers": {
+          "button1Click": {
+              "selector": "#button1ID",
+              "on": "click",
+              "request": "event",
+              "vars": {
+                  "event_name": "button1_click",
+                  "event_category": "AMP",
+                  "event_label": "AMP Button 1 Clicked"
               }
           },
-          "extraUrlParams": {
-              "send_to": "G-MT4DTLRQK8" 
-          },
-          "triggers": {
-              "button1Click": {
-                  "selector": "#button1ID",
-                  "on": "click",
-                  "request": "event",
-                  "vars": {
-                      "event_name": "button1_click",
-                      "event_category": "AMP",
-                      "event_label": "AMP Button 1 Clicked"
-                  }
-              },
-              "button2Click": {
-                  "selector": "#button2ID",
-                  "on": "click",
-                  "request": "event",
-                  "vars": {
-                      "event_name": "button2_click",
-                      "event_category": "AMP",
-                      "event_label": "AMP Button 2 Clicked"
-                  }
+          "button2Click": {
+              "selector": "#button2ID",
+              "on": "click",
+              "request": "event",
+              "vars": {
+                  "event_name": "button2_click",
+                  "event_category": "AMP",
+                  "event_label": "AMP Button 2 Clicked"
               }
           }
       }
-      </script>
-  </amp-analytics>
+  }
+  </script>
+</amp-analytics>
   
   <!-- The Buttons -->
   <button id="button1ID">Click Button 1</button>
