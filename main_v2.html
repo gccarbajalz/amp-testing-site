@@ -11,13 +11,13 @@
         <script type="application/json">
       {
           "vars": {
-                      "GA4_MEASUREMENT_ID": "G-MT4DTLRQK8",
-                      "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
-                      "DEFAULT_PAGEVIEW_ENABLED": true,    
-                      "GOOGLE_CONSENT_ENABLED": false,
-                      "WEBVITALS_TRACKING": false,
-                      "PERFORMANCE_TIMING_TRACKING": false,
-                      "SEND_DOUBLECLICK_BEACON": false
+              "GA4_MEASUREMENT_ID": "G-MT4DTLRQK8",
+              "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+              "DEFAULT_PAGEVIEW_ENABLED": true,    
+              "GOOGLE_CONSENT_ENABLED": false,
+              "WEBVITALS_TRACKING": false,
+              "PERFORMANCE_TIMING_TRACKING": false,
+              "SEND_DOUBLECLICK_BEACON": false
           }
       }
         </script>
@@ -47,7 +47,7 @@
                 "dataSource": "AMP",
                 "isDebugEnabled": "$IF($EQUALS(QUERY_PARAM(_dbg),1), _dbg, __dbg)",
                 "endpoint": "$IF(${DISABLE_REGIONAL_DATA_COLLECTION},https://${GA4_ENDPOINT_HOSTNAME}, https://$IF($EQUALS($MATCH(${timezoneCode}, Europe, 0),Europe), $REPLACE(${GA4_ENDPOINT_HOSTNAME},www.google-analytics.com,region1.google-analytics.com), ${GA4_ENDPOINT_HOSTNAME}))",
-          "ga4SessionCookie": "$CALC(SESSION_TIMESTAMP, 1000, divide, true).SESSION_COUNT.$IF($EQUALS(SESSION_ENGAGED, true),1,0).$CALC(TIMESTAMP, 1000, divide, true).0.0.0"
+                "ga4SessionCookie": "$CALC(SESSION_TIMESTAMP, 1000, divide, true).SESSION_COUNT.$IF($EQUALS(SESSION_ENGAGED, true),1,0).$CALC(TIMESTAMP, 1000, divide, true).0.0.0"
             },
             "extraUrlParams": {
                 "sid": "$CALC(SESSION_TIMESTAMP, 1000, divide, true)",
@@ -196,9 +196,9 @@
                     }
                 }
             }
-      }
-      </script>
-      </amp-analytics> 
+        }
+        </script>
+    </amp-analytics> 
 
   </head>
   <body>
