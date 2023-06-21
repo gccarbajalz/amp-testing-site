@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>GA4 Events Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> 
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
@@ -20,7 +21,7 @@
             }
         }
         </script>
-        </amp-analytics> 
+    </amp-analytics> 
     <style amp-custom>
       body {
         display: flex;
@@ -28,14 +29,57 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-    }
+        font-family: 'Roboto', sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      header {
+        background-color: #4a90e2;
+        color: white;
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: 20px;
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        background-color: #4a90e2;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #357ae8;
+      }
+
+      footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        background-color: #4a90e2;
+        padding: 10px;
+      }
     </style>
   </head>
   <body align="center">
     <header>
       <h1>GA4 Events Demo for AMP WebSite</h1>
     </header>
-    <h3 style="color:darkblue">AMP WebPage version 1.05 </h3>
+    <h3 style="color:darkblue">AMP WebPage version 1.06 </h3>
     <section>
       <h2>Buttons</h2>
       <button id="button1">Button 1</button>
@@ -43,7 +87,7 @@
     </section>
 
     <footer>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><p>Created by Giorgio Carbajal Zapata</p>
+      <p>Created by Giorgio Carbajal Zapata</p>
     </footer>
   </body>
 </html>
