@@ -37,17 +37,21 @@
               "on": "click",
               "request": "ga4Event",
               "vars": {
-                  "event_name": "button1_click",
-                  "event_category": "AMP",
-                  "event_label": "AMP Button 1 Clicked"
-              }
+                "ga4_event_name": "button1_click"
+            },
+            "extraUrlParams": {                  
+                "event_category": "AMP",
+                "event_label": "AMP Button 2 Clicked"
+            }
           },
           "button2Click": {
               "selector": "#button2ID",
               "on": "click",
               "request": "ga4Event",
               "vars": {
-                  "event_name": "button2_click",
+                  "ga4_event_name": "button2_click"
+              },
+              "extraUrlParams": {                  
                   "event_category": "AMP",
                   "event_label": "AMP Button 2 Clicked"
               }
