@@ -101,7 +101,7 @@
             "request": "ga4Event_type1",
             "vars": {
                 "ga4_event_name": "button1_clicked",
-                "custom_param1": "${jsonA.param1}",
+                "b1_custom_param1": AMP.getState('jsonA.jsonA_param1'),
                 "custom_param2": "custom_value2"
             }
         },
