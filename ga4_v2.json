@@ -19,6 +19,34 @@
             "on": "visible",
             "request": "ga4Pageview"
         },
+	    "page_view_O1": {
+            "enabled": "${DEFAULT_PAGEVIEW_ENABLED}",
+            "on": "visible",
+            "request": "ga4Pageview_O1",
+            "vars": {
+				"proceso": "Informativo",
+				"tipoEvento": "Interacción",
+				"tipoZona": "RPP Noticias",
+				"zona": "${Zona}",
+				"subZona": "${Sub-Zona}",
+				"seccion": "${Seccion}",
+				"subSeccion": "none",
+				"CTA": "${Título de la tarjeta}",
+				"pagePath": "${pagePath}",
+				"timeStamp": "${server-side timeStamp}",
+				"responsable": "${responsable}",
+				"IdNota": "${IdNota}",
+				"categoria": "${categoria}",
+				"tituloNota": "${tituloNota}",
+				"fechaPublicacion": "${fechaPublicacion}",
+				"fechaModificacion": "${fechaModificacion}",
+				"tipoResponsable": "${tipoResponsable}",
+				"tipoNota": "${tipoNota}",
+				"formatoNota": "${formatoNota}",
+				"Autor": "${Autor}"
+
+            }
+        },	
         "user_engagement": {
           "on": "visible",
           "request": "ga4Event",
@@ -95,26 +123,85 @@
                 "event__num_dom_interactive_time": "${domInteractiveTime}"
             }
         },
-        "button1Click": {
+		"buttonClick_1_1_01": {
+			"on": "click",
+			"selector": ".[nombre_de_clase]",
+			"request": "ga4Event_typeB",
+			"vars": {
+				"ga4_event_name": "virtualEventB1",
+				"proceso": "Informativo",
+				"tipoEvento": "Interacción",
+				"tipoZona": "RPP Noticias",
+				"zona": "${Zona}",
+				"subZona": "${Sub-Zona}",
+				"seccion": "${Seccion}",
+				"subSeccion": "none",
+				"CTA": "${Título de la tarjeta}",
+				"pagePath": "${pagePath}",
+				"timeStamp": "${server-side timeStamp}",
+				"tipoDispositivo": "${tipoDispositivo}",
+				"IdNota": "${IdNota}",
+				"tituloNota": "${tituloNota}"
+			}
+		},
+		"buttonClick_1_1_09": {
+			"on": "click",
+			"selector": ".[nombre_de_clase]",
+			"request": "ga4Event_typeC",
+			"vars": {
+				"ga4_event_name": "virtualEventC2",
+				"proceso": "Navegación",
+				"tipoEvento": "Interacción",
+				"tipoZona": "RPP Noticias",
+				"zona": "${Zona}",
+				"subZona": "${Sub-Zona}",
+				"seccion": "${Seccion}",
+				"subSeccion": "Etiquetas",
+				"CTA": "${Texto del botón}",
+				"pagePath": "${pagePath}",
+				"timeStamp": "${server-side timeStamp}",
+				"tipoDispositivo": "${tipoDispositivo}",
+				"categoria": "${categoria}"
+			}
+		},
+		"button1.1#22Click": {
             "on": "click",
-            "selector": "#button1",
-            "request": "ga4Event_type1",
+			"selector": "#{button1}",
+            "request": "ga4Event_typeD",
             "vars": {
-                "ga4_event_name": "button1_clicked",
-                "custom_param1": "${jsonA.param1}",
-                "custom_param2": "custom_value2"
+				"ga4_event_name": "virtualEventD23",
+				"proceso": "Suscripcion",
+				"tipoEvento": "Interaccion",
+				"tipoZona": "RPP Noticias",
+				"zona": "${Zona}",
+				"subZona": "${Sub-Zona}",
+				"seccion": "Newsletter",
+				"subSeccion": "none",
+				"CTA": "${Texto del boton}",
+				"pagePath": "${pagePath}",
+				"timeStamp": "${server-side timeStamp}",
+				"tipoDispositivo": "${tipoDispositivo}"
             }
         },
-        "button2Click": {
+		"button1.1#06Click": {
             "on": "click",
-            "selector": "#button2",
-            "request": "ga4Event_type1",
+			"selector": ".{button1}",
+            "request": "ga4Event_typeD",
             "vars": {
-                "ga4_event_name": "button2_clicked",
-                "custom_param1": "custom_value1",
-                "custom_param2": "custom_value2"
+				"ga4_event_name": "virtualEventD4",
+				"proceso": "Navegación",
+				"tipoEvento": "Interacción",
+				"tipoZona": "RPP Noticias",
+				"zona": "${Zona}",
+				"subZona": "${Sub-Zona}",
+				"seccion": "Header",
+				"subSeccion": "Últimas Noticias",
+				"CTA": "${Texto del hipervínculo}",
+				"pagePath": "${pagePath}",
+				"timeStamp": "${server-side timeStamp}",
+				"tipoDispositivo": "${tipoDispositivo}"
             }
-        }
+        }		
     },
     "vars": {
         "documentLocation": "$IF($EQUALS($DEFAULT(${OVERRIDE_PAGE_LOCATION}, EMPTY), EMPTY),SOURCE_URL, ${OVERRIDE_PAGE_LOCATION})",
@@ -165,14 +252,23 @@
         "ga4Pageview": {
             "baseUrl": "/g/collect?${ga4SharedPayload}&en=page_view"
         },
-        "ga4Event": {
-            "baseUrl": "/g/collect?${ga4SharedPayload}&en=${ga4_event_name}"
-        },
-        "ga4Event_typeA": {
-            "baseUrl": "/g/collect?${ga4SharedPayload}&en=${ga4_event_name}&ep.custom_param1=${custom_param1}&ep.custom_param2=${custom_param2}"
+		"ga4Pageview_O1": {
+            "baseUrl": "/g/collect?${ga4SharedPayload}&en=virtualEventO1&ep.proceso=Informativo&ep.tipoEvento=Interacción&ep.tipoZona=RPP Noticias&ep.zona=${zona}&ep.subZona=${subZona}&ep.seccion=Nota&ep.subSeccion=none&ep.CTA=${CTA}&ep.pagePath=${pagePath}&ep.timeStamp=${server-side timeStamp}&ep.tipoDispositivo=${tipoDispositivo}&ep.responsable=${responsable}&ep.IdNota=${IdNota}&ep.categoria=${categoria}&ep.tituloNota=${tituloNota}&ep.fechaPublicacion=${fechaPublicacion}&ep.fechaModificacion=${fechaModificacion}&ep.tipoResponsable=${tipoResponsable}&ep.tipoNota=${tipoNota}&ep.formatoNota=${formatoNota}&ep.Autor=${Autor}"
         },
         "ga4Event_typeB": {
-            "baseUrl": "/g/collect?${ga4SharedPayload}&en=${ga4_event_name}&ep.proceso=${proceso}&ep.tipoEvento=${tipoEvento}&ep.tipoZona=${tipoZona}"
+            "baseUrl": "/g/collect?${ga4SharedPayload}&en=${ga4_event_name}&ep.proceso=${proceso}&ep.tipoEvento=${tipoEvento}&ep.tipoZona=${tipoZona}&ep.zona=${zona}&ep.subZona=${subZona}&ep.seccion=${seccion}&ep.subSeccion=${subSeccion}&ep.CTA=${CTA}&ep.pagePath=${pagePath}&ep.timeStamp=${server-side timeStamp}&ep.tipoDispositivo=${tipoDispositivo}&ep.IdNota=${IdNota}&ep.tituloNota=${tituloNota}"
+        },		
+        "ga4Event_typeC": {
+            "baseUrl": "/g/collect?${ga4SharedPayload}&en=${ga4_event_name}&ep.proceso=${proceso}&ep.tipoEvento=${tipoEvento}&ep.tipoZona=${tipoZona}&ep.zona=${zona}&ep.subZona=${subZona}&ep.seccion=${seccion}&ep.subSeccion=${subSeccion}&ep.CTA=${CTA}&ep.pagePath=${pagePath}&ep.timeStamp=${server-side timeStamp}&ep.tipoDispositivo=${tipoDispositivo}&ep.categoria=${categoria}"
+        },
+		"ga4Event_typeD": {
+            "baseUrl": "/g/collect?${ga4SharedPayload}&en=${ga4_event_name}&ep.proceso=${proceso}&ep.tipoEvento=${tipoEvento}&ep.tipoZona=${tipoZona}&ep.zona=${zona}&ep.subZona=${subZona}&ep.seccion=${seccion}&ep.subSeccion=${subSeccion}&ep.CTA=${CTA}&ep.pagePath=${pagePath}&ep.timeStamp=${server-side timeStamp}&ep.tipoDispositivo=${tipoDispositivo}"
+        },
+		"ga4Event": {
+            "baseUrl": "/g/collect?${ga4SharedPayload}&en=${ga4_event_name}"
+        },
+        "ga4Event_type1": {
+            "baseUrl": "/g/collect?${ga4SharedPayload}&en=${ga4_event_name}&ep.custom_param1=${custom_param1}&ep.custom_param2=${custom_param2}"
         },
         "ga4Dc": {
             "origin": "https://stats.g.doubleclick.net",
