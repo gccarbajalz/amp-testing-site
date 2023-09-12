@@ -30,7 +30,7 @@
             "SEND_DOUBLECLICK_BEACON": false,           
             "config": {
               "G-MT4DTLRQK8": { "groups": "default" },
-              vars{
+              "vars": {
                 "documentLocation": "$IF($EQUALS($DEFAULT(${OVERRIDE_PAGE_LOCATION}, EMPTY), EMPTY),SOURCE_URL, ${OVERRIDE_PAGE_LOCATION})",
                 "documentTitle": "$IF($EQUALS($DEFAULT(${OVERRIDE_PAGE_TITLE}, EMPTY), EMPTY),${title}, ${OVERRIDE_PAGE_TITLE})",
                 "clientId": "CLIENT_ID(AMP_ECID_GOOGLE,,_ga,true)",
