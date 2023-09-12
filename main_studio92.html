@@ -21,10 +21,31 @@
         {
           "vars": {
             "gtag_id": "G-MT4DTLRQK8",
+            "documentLocation": "$IF($EQUALS($DEFAULT(${OVERRIDE_PAGE_LOCATION}, EMPTY), EMPTY),SOURCE_URL, ${OVERRIDE_PAGE_LOCATION})",
+            "documentTitle": "$IF($EQUALS($DEFAULT(${OVERRIDE_PAGE_TITLE}, EMPTY), EMPTY),${title}, ${OVERRIDE_PAGE_TITLE})",
+            "clientId": "CLIENT_ID(AMP_ECID_GOOGLE,,_ga,true)",
+            "dataSource": "AMP",
+            "isDebugEnabled": "$IF($EQUALS(QUERY_PARAM(_dbg),1), _dbg, __dbg)",
+            "endpoint": "$IF(${DISABLE_REGIONAL_DATA_COLLECTION},https://${GA4_ENDPOINT_HOSTNAME}, https://$IF($EQUALS($MATCH(${timezoneCode}, Europe, 0),Europe), $REPLACE(${GA4_ENDPOINT_HOSTNAME},www.google-analytics.com,region1.google-analytics.com), ${GA4_ENDPOINT_HOSTNAME}))",
+	          "ga4SessionCookie": "$CALC(SESSION_TIMESTAMP, 1000, divide, true).SESSION_COUNT.$IF($EQUALS(SESSION_ENGAGED, true),1,0).$CALC(TIMESTAMP, 1000, divide, true).0.0.0"
             "config": {
               "G-MT4DTLRQK8": { "groups": "default" }
             }
-          },                    
+          },   
+          "cookies": {
+            "_ga": {
+                "value": "$IF(LINKER_PARAM(_gl, _ga),GA1.0.LINKER_PARAM(_gl, _ga),)"
+            }
+          },
+          "linkers": {
+              "_gl": {
+                  "enabled": true,
+                  "ids": {
+                      "_ga": "${clientId}"
+                  },
+                  "proxyOnly": false
+              }
+          },
           "triggers": {
             "page_view": {
                 "enabled": "${DEFAULT_PAGEVIEW_ENABLED}",
@@ -35,7 +56,7 @@
               "on": "visible",
               "request": "ga4Event",
               "vars": {
-                 "ga4_event_name": "user_engagement"
+                "ga4_event_name": "user_engagement"
               },
               "visibilitySpec": {
                       "wait-for": "ini-load",
@@ -64,79 +85,8 @@
                     "horizontalBoundaries": [],
                     "useInitialPageSize": false
                 }
-            },        
-            "webVitals": {
-                "enabled": "${WEBVITALS_TRACKING}",
-                "on": "timer",
-                "timerSpec": {
-                    "interval": 5,
-                    "maxTimerLength": 4.99,
-                    "immediate": false
-                },
-                "request": "ga4Event",
-                "vars": {
-                    "ga4_event_name": "web_vitals"
-                },
-                "extraUrlParams": {
-                    "event__num_first_contenful_paint": "FIRST_CONTENTFUL_PAINT",
-                    "event__num_first_viewport_ready": "FIRST_VIEWPORT_READY",
-                    "event__num_make_body_visible": "MAKE_BODY_VISIBLE",
-                    "event__num_largest_contentful_paint": "LARGEST_CONTENTFUL_PAINT",
-                    "event__num_cumulative_layout_shift": "CUMULATIVE_LAYOUT_SHIFT"
-                }
-            },
-            "performanceTiming": {
-                "enabled": "${PERFORMANCE_TIMING_TRACKING}",
-                "on": "visible",
-                "request": "ga4Event",
-                "sampleSpec": {
-                    "sampleOn": "${clientId}",
-                    "threshold": 100
-                },
-                "vars": {
-                    "ga4_event_name": "performance_timing"
-                },
-                "extraUrlParams": {
-                    "event__num_page_load_time": "${pageLoadTime}",
-                    "event__num_domain_lookup_time": "${domainLookupTime}",
-                    "event__num_tcp_connect_time": "${tcpConnectTime}",
-                    "event__num_redirect_time": "${redirectTime}",
-                    "event__num_server_response_time": "${serverResponseTime}",
-                    "event__num_page_download_time": "${pageDownloadTime}",
-                    "event__num_content_download_time": "${contentLoadTime}",
-                    "event__num_dom_interactive_time": "${domInteractiveTime}"
-                }
-            },
-            "button1Click": {
-                "on": "click",
-                "selector": "#button1",
-                "request": "ga4Event_type1",
-                "vars": {
-                    "ga4_event_name": "button1_clicked",
-                    "b1_custom_param1": AMP.getState('jsonA.jsonA_param1'),
-                    "custom_param2": "custom_value2"
-                }
-            },
-            "button2Click": {
-                "on": "click",
-                "selector": "#button2",
-                "request": "ga4Event_type1",
-                "vars": {
-                    "ga4_event_name": "button2_clicked",
-                    "custom_param1": "custom_value1",
-                    "custom_param2": "custom_value2"
-                }
             }
-          },
-          "vars": {
-              "documentLocation": "$IF($EQUALS($DEFAULT(${OVERRIDE_PAGE_LOCATION}, EMPTY), EMPTY),SOURCE_URL, ${OVERRIDE_PAGE_LOCATION})",
-              "documentTitle": "$IF($EQUALS($DEFAULT(${OVERRIDE_PAGE_TITLE}, EMPTY), EMPTY),${title}, ${OVERRIDE_PAGE_TITLE})",
-              "clientId": "CLIENT_ID(AMP_ECID_GOOGLE,,_ga,true)",
-              "dataSource": "AMP",
-              "isDebugEnabled": "$IF($EQUALS(QUERY_PARAM(_dbg),1), _dbg, __dbg)",
-              "endpoint": "$IF(${DISABLE_REGIONAL_DATA_COLLECTION},https://${GA4_ENDPOINT_HOSTNAME}, https://$IF($EQUALS($MATCH(${timezoneCode}, Europe, 0),Europe), $REPLACE(${GA4_ENDPOINT_HOSTNAME},www.google-analytics.com,region1.google-analytics.com), ${GA4_ENDPOINT_HOSTNAME}))",
-              "ga4SessionCookie": "$CALC(SESSION_TIMESTAMP, 1000, divide, true).SESSION_COUNT.$IF($EQUALS(SESSION_ENGAGED, true),1,0).$CALC(TIMESTAMP, 1000, divide, true).0.0.0"
-          },          
+          },    
           "extraUrlParams": {
               "sid": "$CALC(SESSION_TIMESTAMP, 1000, divide, true)",
               "sct": "SESSION_COUNT",
@@ -184,8 +134,8 @@
                 "origin": "https://stats.g.doubleclick.net",
                 "baseUrl": "/g/collect?v=2&tid=${GA4_MEASUREMENT_ID}&cid=${clientId}&aip=1"
             }
-          }
-        }              
+          }          
+        }       
       </script>
     </amp-analytics>
 
