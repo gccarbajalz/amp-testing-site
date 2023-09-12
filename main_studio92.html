@@ -1,0 +1,94 @@
+<!doctype html>
+<html ⚡ lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GA4 Events Demo</title>
+    
+    
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+    {
+      "vars" : {
+        "gtag_id": "G-MT4DTLRQK8",
+        "config" : {
+          "G-MT4DTLRQK8": { "groups": "default" }
+        }
+      }
+    }
+    </script>
+    </amp-analytics>
+
+
+    <style amp-custom>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Roboto', sans-serif;
+        background-color: #F1F1FF;
+      }
+
+      header {
+        background-color: #000033;
+        color: white;
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: 20px;
+      }
+
+      section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        background-color: #4a90e2;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #357ae8;
+      }
+
+      footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        text-align: center;
+        background-color: #000033;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body align="center">
+    <header>
+      <h2>GA4 Events Demo for AMP WebSite</h2>
+    </header>
+    <h3>AMP WebPage version 2.01 </h3>
+    <section>
+      <h3 style="color:#4F4F70">Try me: </h3>
+      <button id="button1">Button 1</button>
+      <button id="button2">Button 2</button>
+    </section>
+
+    <footer>
+      <p>Created by Giorgio Carbajal Zapata</p>
+      <p>21 de Junio 2023</p>
+    </footer>
+  </body>
+</html>
